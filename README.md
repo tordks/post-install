@@ -1,5 +1,5 @@
-Ubuntu Post Install Script
-==========================
+Post Install Script
+===================
 
 A simple set of bash scripts with a nice terminal-based UI, for simplifying the setup of a fresh system by installing your favourite applications.
 

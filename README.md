@@ -1,7 +1,7 @@
 Post Install Script
 ===================
 
-A simple set of bash scripts with a nice terminal-based UI, for simplifying the setup of a fresh system by installing your favourite applications.
+A simple set of bash scripts for simplifying the setup of a fresh system by installing your favourite applications.
 
 The original author of this code is Sam Hewitt hewittsamuel@gmail.com and has been edited by Ravikishore Kommajosyula ravikishorek@gmail.com
 

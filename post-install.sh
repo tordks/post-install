@@ -184,8 +184,7 @@ echo 'Installing third party applications...? '
 echo ''
 echo 'Current package list:
 Google Chrome 
-Steam
-Spotify client'
+Steam'
 echo ''
 #
 # Google Chrome 
@@ -235,26 +234,6 @@ sudo apt-get install -fy
 rm steam*.deb
 cd
 echo 'Done.'
-#
-# Spotify
-#
-echo 'Adding Spotify repository to sources...'
-echo 'Creating apt list file...'
-touch spotify.list
-echo "deb http://repository.spotify.com stable non-free" >> spotify.list
-echo 'Moving spotify.list to /etc/apt/sources.list.d/'
-echo 'Requires root privileges:'
-sudo mv -f spotify.list /etc/apt/sources.list.d/
-echo 'Done.'
-# Update repository information
-echo 'Adding repository key and updating repository information...'
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
-sudo apt-get update
-# Install package(s)
-echo 'Installing Spotify client...'
-sudo apt-get install -y spotify-client
-echo 'Done.'
-}
 
 # CLEANUP SYSTEM
 function cleanup {

@@ -4,7 +4,10 @@
 # Description:
 #   A post-installation bash script for Ubuntu (14.04)
 
-#TODO: finish functions
+#TODO: Finish functions
+#TODO: Document packages
+#TODO: Fix Headings/reformat
+#TODO: Readd gnome stuff
 echo ''
 echo '#-------------------------------------------#'
 echo '#     Ubuntu 14.04 Post-Install Script      #'
@@ -32,9 +35,29 @@ echo ''
 echo 'Installing selected favourite applications'
 echo ''
 echo 'Current package list:
-vlc
+Vlc
+Skype
+Wine
+Indicator sticknotes
+Nitro Task Manager
+Tor browser
 '
-sudo apt-get install -y --no-install-recommends vlc
+sudo apt-get install -y --no-install-recommends vlc skype wine
+
+# Sticknotes, Nitro, Tor
+sudo add-apt-repository ppa:umang/indicator-stickynotes
+sudo add-apt-repository ppa:cooperjona/nitrotasks
+sudo add-apt-repository ppa:upubuntu-com/tor64
+sudo apt-get update
+sudo apt-get install indicator-stickynotes
+sudo apt-get install nitrotasks
+sudo apt-get install tor-browser
+
+#To remove tor:
+#sudo add-apt-repository --remove ppa:upubuntu-com/tor-bundle
+#sudo apt-get remove tor-browser
+#sudo apt-get update 
+
 }
 
 ##########################
@@ -49,15 +72,20 @@ echo 'Current package list:
 aptitude
 dconf-tools
 ssh
-synaptic'
+synaptic
+htop
+parallel
+GNU stow
+tig
+ncdu'
 echo ''
-sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic
+sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu
 }
 
 ###############################
 #  INSTALL DEVELOPMENT TOOLS  #
 ###############################
-
+#TODO: Anaconda, SmartGit
 function development {
 echo ''
 echo 'Installing development tools...'
@@ -85,7 +113,7 @@ sudo apt-get install -y build-essential git gitk  g++ libcr-dev python-numpy pyt
 ##########################
 #  INSTALL DESIGN TOOLS  #
 ##########################
-
+#TODO: TexText
 function design {
 echo ''
 echo 'Installing design tools...'
@@ -93,16 +121,18 @@ echo ''
 echo 'Current package list:
 gimp
 gimp-plugin-registry
-inkscape'
+inkscape
+imagemagick
+gnome-do'
 echo ''
-sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape
+sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do'
 }
 
 
 ##############################
 #  THIRD PARTY APPLICATIONS  #
 ##############################
-
+#TODO: Minetest, Nethack
 function thirdparty {
 echo 'Installing third party applications...? '
 echo ''

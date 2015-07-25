@@ -7,7 +7,7 @@
 #TODO: Finish functions
 #TODO: Document packages
 #TODO: Fix Headings/reformat
-#TODO: Readd gnome stuff
+#TODO: Read gnome stuff
 echo ''
 echo '#-------------------------------------------#'
 echo '#     Ubuntu 14.04 Post-Install Script      #'

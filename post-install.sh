@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # -*- Mode: sh; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 
 # Description:
@@ -8,6 +8,10 @@
 #TODO: Document packages
 #TODO: Fix Headings/reformat
 #TODO: Read gnome stuff
+#TODO: Add options/bundles.
+#TODO: Add customizations
+#TODO: Add dotfiles.
+
 echo ''
 echo '#-------------------------------------------#'
 echo '#     Ubuntu 14.04 Post-Install Script      #'
@@ -29,6 +33,8 @@ sudo apt-get dist-upgrade -y
 ##########################
 #  INSTALL APPLICATIONS  #
 ##########################
+#TODO: Latex,
+#TODO: Merge favourites and third party into "programs" ?
 
 function favourites {
 echo ''
@@ -85,7 +91,7 @@ sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synapt
 ###############################
 #  INSTALL DEVELOPMENT TOOLS  #
 ###############################
-#TODO: Anaconda, SmartGit
+#TODO: Anaconda, SmartGit, fortran,
 function development {
 echo ''
 echo 'Installing development tools...'
@@ -138,7 +144,9 @@ echo 'Installing third party applications...? '
 echo ''
 echo 'Current package list:
 Google Chrome 
-Steam'
+Steam
+.Zapp
+Vim'
 echo ''
 
 #------------------#
@@ -177,10 +185,8 @@ elif [ $(uname -i) = 'x86_64' ]; then
     wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 fi
 
-
 # Install package(s)
 echo 'Installing Steam...'
-echo 'Requires root privileges:'
 sudo dpkg -i steam*.deb
 sudo apt-get install -fy
 
@@ -209,6 +215,15 @@ cd
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c :bd -c :q
 
+##############
+#  Dotfiles  #
+##############
+#TODO: Symlinktool ala Joakim. 
+function dotfiles {
+git clone 
+cd .dotfiles
+
+}
 
 ####################
 #  CLEANUP SYSTEM  #
@@ -259,10 +274,7 @@ favourites
 system
 development # Install Dev Tools
 design # Install Design Tools
-gnome # Install GNOME components
-codecinstall # Install Ubuntu Restricted Extras
 thirdparty # Install Third-Party Applications
-customize # Customize system
 cleanup
 echo ''
 echo 'Post-install package completed'

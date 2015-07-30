@@ -11,6 +11,7 @@
 #TODO: Add options/bundles.
 #TODO: Add customizations
 #TODO: Add dotfiles.
+#TODO: Koble opp mot stud-serveren
 
 echo ''
 echo '#-------------------------------------------#'
@@ -212,6 +213,7 @@ cd
 #  VIM  #
 #-------#
 
+#Installing plugin manager
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c :bd -c :q
 
@@ -219,9 +221,13 @@ vim -c PlugInstall -c :bd -c :q
 #  Dotfiles  #
 ##############
 #TODO: Symlinktool ala Joakim. 
+#TODO: TEST. This is not tested
 function dotfiles {
-git clone 
-cd .dotfiles
+git clone https://github.com/tordks/dotfiles.git
+cp -s .dotfiles/.bashrc .
+cp -s .dotfiles/.vimrc .
+cp -s .dotfiles/Ultisnips .vim/
+
 
 }
 

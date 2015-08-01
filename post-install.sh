@@ -10,15 +10,15 @@
 #TODO: Read gnome stuff
 #TODO: Add options/bundles.
 #TODO: Add customizations
-#TODO: Add dotfiles.
 #TODO: Koble opp mot stud-serveren
+#TODO: RSS-feed application
 
 echo ''
-echo '#-------------------------------------------#'
-echo '#     Ubuntu 14.04 Post-Install Script      #'
-echo '#-------------------------------------------#'
+echo '#------------------------------#'
+echo '#     Post-Install Script      #'
+echo '#------------------------------#'
 echo ''
-sleep 3
+sleep 2
 
 #####################
 #  SYSTEM UPGRADE   #
@@ -33,10 +33,8 @@ sudo apt-get dist-upgrade -y
 ##########################
 #  INSTALL APPLICATIONS  #
 ##########################
-#TODO: Latex,
-#TODO: Merge favourites and third party into "programs" ?
-
-function favourites {
+#TODO: Minetest, 
+function applications {
 echo ''
 echo 'Installing selected favourite applications'
 echo ''
@@ -47,7 +45,10 @@ Wine
 Indicator sticknotes
 Nitro Task Manager
 Tor browser
-'
+Google Chrome 
+Steam
+.Zapp
+Vim'
 sudo apt-get install -y --no-install-recommends vlc skype wine
 
 # Sticknotes, Nitro, Tor
@@ -64,91 +65,6 @@ sudo apt-get install tor-browser
 #sudo apt-get remove tor-browser
 #sudo apt-get update 
 
-}
-
-##########################
-#  INSTALL SYSTEM TOOLS  #
-##########################
-
-function system {
-echo ''
-echo 'Installing system utilities'
-echo ''
-echo 'Current package list:
-aptitude
-dconf-tools
-ssh
-synaptic
-htop
-parallel
-GNU stow
-tig
-ncdu'
-echo ''
-sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu
-}
-
-###############################
-#  INSTALL DEVELOPMENT TOOLS  #
-###############################
-#TODO: Anaconda, SmartGit, fortran,
-function development {
-echo ''
-echo 'Installing development tools...'
-echo ''
-echo 'Current package list:
-build-essential
-git
-gitk
-g++
-libcr-dev
-python-numpy
-python-scipy
-python-matplotlib
-ipython
-ipython-notebook
-vim
-scons
-lapack
-cmake'
-echo ''
-sudo apt-get install -y build-essential git gitk  g++ libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake
-}
-
-
-##########################
-#  INSTALL DESIGN TOOLS  #
-##########################
-#TODO: TexText
-function design {
-echo ''
-echo 'Installing design tools...'
-echo ''
-echo 'Current package list:
-gimp
-gimp-plugin-registry
-inkscape
-imagemagick
-gnome-do'
-echo ''
-sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do'
-}
-
-
-##############################
-#  THIRD PARTY APPLICATIONS  #
-##############################
-#TODO: Minetest, Nethack
-echo ''
-function thirdparty {
-echo 'Installing third party applications...? '
-echo ''
-echo 'Current package list:
-Google Chrome 
-Steam
-.Zapp
-Vim'
-echo ''
 
 #------------------#
 #  Google Chrome   #
@@ -217,11 +133,81 @@ cd
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c :bd -c :q
 
+}
+
+##########################
+#  INSTALL SYSTEM TOOLS  #
+##########################
+
+function system {
+echo ''
+echo 'Installing system utilities'
+echo ''
+echo 'Current package list:
+aptitude
+dconf-tools
+ssh
+synaptic
+htop
+parallel
+GNU stow
+tig
+ncdu'
+echo ''
+sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu
+}
+
+###############################
+#  INSTALL DEVELOPMENT TOOLS  #
+###############################
+#TODO: Anaconda, SmartGit, fortran,
+function development {
+echo ''
+echo 'Installing development tools...'
+echo ''
+echo 'Current package list:
+build-essential
+git
+gitk
+g++
+gfortran
+libcr-dev
+python-numpy
+python-scipy
+python-matplotlib
+ipython
+ipython-notebook
+vim
+scons
+lapack
+cmake
+Latex'
+echo ''
+sudo apt-get install -y build-essential git gitk  g++ gfortran libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake texlive
+}
+
+
+##########################
+#  INSTALL DESIGN TOOLS  #
+##########################
+function design {
+echo ''
+echo 'Installing design tools...'
+echo ''
+echo 'Current package list:
+gimp
+gimp-plugin-registry
+inkscape
+imagemagick
+gnome-do'
+echo ''
+sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do'
+}
+
+
 ##############
 #  Dotfiles  #
 ##############
-#TODO: Symlinktool ala Joakim. 
-#TODO: TEST. This is not tested
 function dotfiles {
 git clone https://github.com/tordks/dotfiles.git
 cd .dotfiles/
@@ -252,6 +238,7 @@ echo 'Removing old Kernel(s)...'
 echo 'Requires root privileges:'
 sudo dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | grep -v linux-libc-dev | xargs sudo apt-get -y purge
 echo 'Done.'
+
 # Remove Orphaned Packages
 echo 'Removing orphaned packages...'
 echo 'Requires root privileges:'
@@ -271,22 +258,23 @@ sudo apt-get clean
 echo 'Done.'
 }
 
-}
 
 
 #----- MY MAIN FUNCTION ----#
 function my_main {
 echo ''
 echo 'Running post-install package'
-sysupgrade
-favourites
-system
+cd
+sysupgrade  # System upgrade/Update
+favourites  # Favourite applications
+system      # System tools
 development # Install Dev Tools
-design # Install Design Tools
-thirdparty # Install Third-Party Applications
-cleanup
+design      # Install Design Tools
+thirdparty  # Install Third-Party Applications
+dotfiles    # Get dotfiles and move to correct location
+cleanup     # Remove unused packages etc.
 echo ''
-echo 'Post-install package completed'
+echo 'Post-install completed'
 echo 'Please restart your system'
 }
 

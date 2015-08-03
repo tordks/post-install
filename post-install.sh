@@ -213,6 +213,7 @@ git clone https://github.com/tordks/dotfiles.git
 cd .dotfiles/
 stow bash
 stow vim
+cd
 }
 
 ####################

@@ -12,6 +12,7 @@
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
 #TODO: RSS-feed application
+#TODO: pip + when-changed
 
 echo ''
 echo '#------------------------------#'
@@ -152,9 +153,13 @@ htop
 parallel
 GNU stow
 tig
-ncdu'
+ncdu
+pip
+when-changed'
 echo ''
-sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu
+sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu python-pip 
+
+pip install https://github.com/joh/when-changed/archive/master.zip
 }
 
 ###############################

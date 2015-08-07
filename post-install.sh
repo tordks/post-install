@@ -20,6 +20,26 @@ echo '#------------------------------#'
 echo ''
 sleep 2
 
+####################
+#  Choose bundles  #
+####################
+
+function choose {
+echo 'Which bundles do you wish to install?'
+echo 's - system upgrade'
+echo 'a - applications'
+echo 't - system tools'
+echo 'D - development tools'
+echo 'd - design tools'
+echo 'f - dotfiles'
+echo 'ALL - all of the above'
+read ans
+
+echo 'Cleanup?'
+echo 'Y/n'
+read clean
+}
+
 #####################
 #  SYSTEM UPGRADE   #
 #####################
@@ -270,6 +290,7 @@ function my_main {
 echo ''
 echo 'Running post-install package'
 cd
+choose      # Choose which bundles to run
 sysupgrade  # System upgrade/Update
 favourites  # Favourite applications
 system      # System tools

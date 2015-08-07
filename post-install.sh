@@ -26,13 +26,13 @@ sleep 2
 
 function choose {
 echo 'Which bundles do you wish to install?'
-echo 's - system upgrade'
-echo 'a - applications'
-echo 't - system tools'
-echo 'D - development tools'
-echo 'd - design tools'
-echo 'f - dotfiles'
-echo 'ALL - all of the above'
+echo 'u   - system upgrade'
+echo 'a   - applications'
+echo 't   - system tools'
+echo 'D   - development tools'
+echo 'd   - design tools'
+echo 'f   - dotfiles'
+echo 'all - all of the above'
 read ans
 
 echo 'Cleanup?'
@@ -291,17 +291,51 @@ echo ''
 echo 'Running post-install package'
 cd
 choose      # Choose which bundles to run
-sysupgrade  # System upgrade/Update
-favourites  # Favourite applications
-system      # System tools
-development # Install Dev Tools
-design      # Install Design Tools
-thirdparty  # Install Third-Party Applications
-dotfiles    # Get dotfiles and move to correct location
-cleanup     # Remove unused packages etc.
+
+if [[ $ans == *"u"* || $ans == *"all"* ]]
+then
+    sysupgrade     # System upgrade/Update
+fi
+
+if [[ $ans == *"t"* || $ans == *"all"* ]]
+then
+    system         # System tools
+fi
+
+if [[ $ans == *"D"* || $ans == *"all"* ]]
+then
+    development    # Install Dev Tools
+fi
+
+if   [[$ans == *"a"* || $ans == *"all"* ]]
+then
+    applications   # Applications
+fi
+
+if [[ $ans == *"d"* || $ans == *"all"* ]]
+then
+    design         # Install Design Tools
+fi
+
+if   [[$ans == *"f"* || $ans == *"all"* ]]
+then
+    dotfiles       # Get dotfiles and move to correct location
+fi
+
+if [[ $clean == *"Y"* || $clean == *"y"* ]]
+then
+    cleanup        # Remove unused packages etc.
+fi
+
 echo ''
 echo 'Post-install completed'
-echo 'Please restart your system'
+echo 'Restart system?'
+read ans
+
+if [[$ans == "Y" || $ans == "y"]]
+then
+    sudo reboot
+fi
 }
 
 

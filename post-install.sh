@@ -12,7 +12,6 @@
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
 #TODO: RSS-feed application
-#TODO: pip + when-changed
 
 echo ''
 echo '#------------------------------#'

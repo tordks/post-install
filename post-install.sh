@@ -12,13 +12,12 @@
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
 #TODO: RSS-feed application
-
+#TODO: Kjører ikke alle bundles ved feks. tDa.
 echo ''
 echo '#------------------------------#'
 echo '#     Post-Install Script      #'
 echo '#------------------------------#'
 echo ''
-sleep 2
 
 ####################
 #  Choose bundles  #
@@ -27,9 +26,10 @@ sleep 2
 function choose {
 echo 'Which bundles do you wish to install?'
 echo 'u   - system upgrade'
-echo 'a   - applications'
 echo 't   - system tools'
 echo 'D   - development tools'
+echo 'a   - applications'
+echo 't   - system tools'
 echo 'd   - design tools'
 echo 'f   - dotfiles'
 echo 'all - all of the above'
@@ -54,6 +54,7 @@ sudo apt-get dist-upgrade -y
 #  INSTALL APPLICATIONS  #
 ##########################
 #TODO: Minetest, 
+#TODO: Nitrotasks not working
 function applications {
 echo ''
 echo 'Installing selected favourite applications'
@@ -69,15 +70,17 @@ Google Chrome
 Steam
 .Zapp
 Vim'
-sudo apt-get install -y --no-install-recommends vlc skype wine
+sudo apt-get install -y --no-install-recommends vlc skype wine feilpakke || echo "Installation failed" && exit
+
+#TODO: Flytt dette over og flytt alle apt-get install sammen med den første.
 
 # Sticknotes, Nitro, Tor
 sudo add-apt-repository ppa:umang/indicator-stickynotes
-sudo add-apt-repository ppa:cooperjona/nitrotasks
+#sudo add-apt-repository ppa:cooperjona/nitrotasks
 sudo add-apt-repository ppa:upubuntu-com/tor64
 sudo apt-get update
 sudo apt-get install indicator-stickynotes
-sudo apt-get install nitrotasks
+#sudo apt-get install nitrotasks
 sudo apt-get install tor-browser
 
 #To remove tor:
@@ -176,7 +179,7 @@ ncdu
 pip
 when-changed'
 echo ''
-sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu python-pip 
+sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu python-pip || echo "Installation failed" && exit
 
 pip install https://github.com/joh/when-changed/archive/master.zip
 }
@@ -207,7 +210,7 @@ lapack
 cmake
 Latex'
 echo ''
-sudo apt-get install -y build-essential git gitk  g++ gfortran libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake texlive
+sudo apt-get install -y build-essential git gitk  g++ gfortran libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake texlive || echo "Installation failed" && exit
 }
 
 
@@ -225,7 +228,7 @@ inkscape
 imagemagick
 gnome-do'
 echo ''
-sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do'
+sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do' || echo "Installation failed" && exit
 }
 
 
@@ -307,7 +310,8 @@ then
     development    # Install Dev Tools
 fi
 
-if   [[$ans == *"a"* || $ans == *"all"* ]]
+
+if [[ $ans == *"a"* || $ans == *"all"* ]]
 then
     applications   # Applications
 fi

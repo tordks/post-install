@@ -12,7 +12,6 @@
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
 #TODO: RSS-feed application
-#TODO: Kjører ikke alle bundles ved feks. tDa.
 
 
 echo ''
@@ -47,8 +46,8 @@ read clean
 
 function sysupgrade {
 echo 'SYSTEM UPGRADE'
-#sudo apt-get update
-#sudo apt-get dist-upgrade -y
+sudo apt-get update
+sudo apt-get dist-upgrade -y
 }
 
 ##########################
@@ -73,85 +72,85 @@ Steam
 Vim'
 
 
-#sudo add-apt-repository ppa:umang/indicator-stickynotes
-##sudo add-apt-repository ppa:cooperjona/nitrotasks
-#sudo add-apt-repository ppa:upubuntu-com/tor64
-#sudo apt-get update
-#
-#sudo apt-get install -y --no-install-recommends vlc skype wine indicator-stickynotes tor-browser nitrotasks || echo "Installation failed" && exit
-#
-##To remove tor:
-##sudo add-apt-repository --remove ppa:upubuntu-com/tor-bundle
-##sudo apt-get remove tor-browser
-##sudo apt-get update 
-#
-#
-##------------------#
-##  Google Chrome   #
-##------------------#
-#
-#echo 'Downloading Google Chrome'
-#
-## Download Debian file that matches system architecture
-#if [ $(uname -i) = 'i386' ]; then
-#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
-#elif [ $(uname -i) = 'x86_64' ]; then
-#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#fi
-#
-#
-## Install package(s)
-#echo 'Installing Google Chrome'
-#sudo dpkg -i google-chrome*.deb
-#sudo apt-get install -fy
-#
-## Cleanup and finish
-#rm google-chrome*.deb
-#cd
-#
-##---------#
-##  Steam  #
-##---------#
-#
-#echo 'Downloading Steam'
-#cd $HOME/Downloads
-## Download Debian file that matches system architecture
-#if [ $(uname -i) = 'i386' ]; then
-#    wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-#elif [ $(uname -i) = 'x86_64' ]; then
-#    wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-#fi
-#
-## Install package(s)
-#echo 'Installing Steam...'
-#sudo dpkg -i steam*.deb
-#sudo apt-get install -fy
-#
-## Cleanup and finish
-#rm steam*.deb
-#cd
-#
-#
-#
-##---------#
-##  .Zapp  #
-##---------#
-#
-#echo 'Installing .zapp'
-#mkdir .zapp
-#cd .zapp
-#git clone https://github.com/rupa/z.git
-#mv z/z.sh .
-#rm -rf z
-#cd
-#
-##-------#
-##  VIM  #
-##-------#
-#
-##Installing plugin manager
-#curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#vim -c PlugInstall -c :bd -c :q
+sudo add-apt-repository ppa:umang/indicator-stickynotes
+#sudo add-apt-repository ppa:cooperjona/nitrotasks
+sudo add-apt-repository ppa:upubuntu-com/tor64
+sudo apt-get update
+
+sudo apt-get install -y --no-install-recommends vlc skype wine indicator-stickynotes tor-browser nitrotasks || echo "Installation failed" && exit
+
+#To remove tor:
+#sudo add-apt-repository --remove ppa:upubuntu-com/tor-bundle
+#sudo apt-get remove tor-browser
+#sudo apt-get update 
+
+
+#------------------#
+#  Google Chrome   #
+#------------------#
+
+echo 'Downloading Google Chrome'
+
+# Download Debian file that matches system architecture
+if [ $(uname -i) = 'i386' ]; then
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+elif [ $(uname -i) = 'x86_64' ]; then
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+fi
+
+
+# Install package(s)
+echo 'Installing Google Chrome'
+sudo dpkg -i google-chrome*.deb
+sudo apt-get install -fy
+
+# Cleanup and finish
+rm google-chrome*.deb
+cd
+
+#---------#
+#  Steam  #
+#---------#
+
+echo 'Downloading Steam'
+cd $HOME/Downloads
+# Download Debian file that matches system architecture
+if [ $(uname -i) = 'i386' ]; then
+    wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+elif [ $(uname -i) = 'x86_64' ]; then
+    wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+fi
+
+# Install package(s)
+echo 'Installing Steam...'
+sudo dpkg -i steam*.deb
+sudo apt-get install -fy
+
+# Cleanup and finish
+rm steam*.deb
+cd
+
+
+
+#---------#
+#  .Zapp  #
+#---------#
+
+echo 'Installing .zapp'
+mkdir .zapp
+cd .zapp
+git clone https://github.com/rupa/z.git
+mv z/z.sh .
+rm -rf z
+cd
+
+#-------#
+#  VIM  #
+#-------#
+
+#Installing plugin manager
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c PlugInstall -c :bd -c :q
 
 }
 
@@ -176,9 +175,9 @@ ncdu
 pip
 when-changed'
 echo ''
-#sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu python-pip || echo "Installation failed" && exit
-#
-#pip install https://github.com/joh/when-changed/archive/master.zip
+sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu python-pip || echo "Installation failed" && exit
+
+pip install https://github.com/joh/when-changed/archive/master.zip
 }
 
 ###############################
@@ -207,7 +206,7 @@ lapack
 cmake
 Latex'
 echo ''
-#sudo apt-get install -y build-essential git gitk  g++ gfortran libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake texlive || echo "Installation failed" && exit
+sudo apt-get install -y build-essential git gitk  g++ gfortran libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake texlive || echo "Installation failed" && exit
 }
 
 
@@ -225,7 +224,7 @@ inkscape
 imagemagick
 gnome-do'
 echo ''
-#sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do' || echo "Installation failed" && exit
+sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do' || echo "Installation failed" && exit
 }
 
 
@@ -234,11 +233,11 @@ echo ''
 ##############
 function dotfiles {
 echo 'Adding dotfiles'
-#git clone https://github.com/tordks/dotfiles.git
-#cd .dotfiles/
-#stow bash
-#stow vim
-#cd
+git clone https://github.com/tordks/dotfiles.git
+cd .dotfiles/
+stow bash
+stow vim
+cd
 }
 
 ####################

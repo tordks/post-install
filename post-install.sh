@@ -4,14 +4,12 @@
 # Description:
 #   A post-installation bash script for Ubuntu (14.04)
 
-#TODO: Finish functions
 #TODO: Document packages
-#TODO: Fix Headings/reformat
 #TODO: Read gnome stuff
-#TODO: Add options/bundles.
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
 #TODO: RSS-feed application
+#TODO: clean CLEANUP
 
 
 echo ''

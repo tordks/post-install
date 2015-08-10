@@ -77,7 +77,13 @@ sudo add-apt-repository ppa:umang/indicator-stickynotes
 sudo add-apt-repository ppa:upubuntu-com/tor64
 sudo apt-get update
 
-sudo apt-get install -y --no-install-recommends vlc skype wine indicator-stickynotes tor-browser nitrotasks || echo "Installation failed" && exit
+sudo apt-get install -y \
+vlc \
+skype \
+wine \
+indicator-stickynotes \
+tor-browser \
+|| echo "Installation failed" && exit
 
 #To remove tor:
 #sudo add-apt-repository --remove ppa:upubuntu-com/tor-bundle
@@ -130,8 +136,6 @@ sudo apt-get install -fy
 rm steam*.deb
 cd
 
-
-
 #---------#
 #  .Zapp  #
 #---------#
@@ -175,9 +179,19 @@ ncdu
 pip
 when-changed'
 echo ''
-sudo apt-get install -y --no-install-recommends aptitude dconf-tools ssh  synaptic htop parallel stow tig ncdu python-pip || echo "Installation failed" && exit
+sudo apt-get install -y \
+aptitude \
+ssh \
+synaptic \
+htop \
+parallel \
+stow \
+tig \
+ncdu \
+python-pip \
+|| echo "Installation failed" && exit
 
-pip install https://github.com/joh/when-changed/archive/master.zip
+pip install https://github.com/joh/when-changed/archive/master.zip #when-changed
 }
 
 ###############################
@@ -206,7 +220,24 @@ lapack
 cmake
 Latex'
 echo ''
-sudo apt-get install -y build-essential git gitk  g++ gfortran libcr-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook vim scons liblapack-dev cmake texlive || echo "Installation failed" && exit
+sudo apt-get install -y \
+build-essential \
+git \
+gitk \
+g++ \
+gfortran \
+libcr-dev \
+python-numpy \
+python-scipy \
+python-matplotlib \
+ipython \
+ipython-notebook \
+vim \
+scons \
+liblapack-dev \
+cmake \
+texlive \
+|| echo "Installation failed" && exit
 }
 
 
@@ -224,7 +255,12 @@ inkscape
 imagemagick
 gnome-do'
 echo ''
-sudo apt-get install -y  gimp gimp-plugin-registry icontool inkscape imagemagick 'gnome-do' || echo "Installation failed" && exit
+sudo apt-get install -y  gimp \
+gimp-plugin-registry \
+icontool \
+inkscape \
+imagemagick \
+'gnome-do' || echo "Installation failed" && exit
 }
 
 

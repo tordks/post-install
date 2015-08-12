@@ -175,7 +175,8 @@ GNU stow
 tig
 ncdu
 pip
-when-changed'
+when-changed
+xsel'
 echo ''
 sudo apt-get install -y \
 aptitude \
@@ -187,9 +188,14 @@ stow \
 tig \
 ncdu \
 python-pip \
+xsel \
 || echo "Installation failed" && exit
 
 pip install https://github.com/joh/when-changed/archive/master.zip #when-changed
+
+#Remove native terminal and replace it with terminator
+sudo apt-get remove gnome-terminal
+sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
 }
 
 ###############################

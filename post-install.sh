@@ -66,9 +66,7 @@ Nitro Task Manager
 Tor browser
 Google Chrome 
 Steam
-.Zapp
 Vim'
-
 
 sudo add-apt-repository ppa:umang/indicator-stickynotes
 #sudo add-apt-repository ppa:cooperjona/nitrotasks
@@ -134,18 +132,6 @@ sudo apt-get install -fy
 rm steam*.deb
 cd
 
-#---------#
-#  .Zapp  #
-#---------#
-
-echo 'Installing .zapp'
-mkdir .zapp
-cd .zapp
-git clone https://github.com/rupa/z.git
-mv z/z.sh .
-rm -rf z
-cd
-
 #-------#
 #  VIM  #
 #-------#
@@ -176,7 +162,9 @@ tig
 ncdu
 pip
 when-changed
-xsel'
+xsel
+terminator
+zapp'
 echo ''
 sudo apt-get install -y \
 aptitude \
@@ -189,13 +177,28 @@ tig \
 ncdu \
 python-pip \
 xsel \
+terminator \
 || echo "Installation failed" && exit
 
-pip install https://github.com/joh/when-changed/archive/master.zip #when-changed
+#when-changed
+pip install https://github.com/joh/when-changed/archive/master.zip 
 
 #Remove native terminal and replace it with terminator
 sudo apt-get remove gnome-terminal
 sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
+
+#---------#
+#  .Zapp  #
+#---------#
+
+echo 'Installing .zapp'
+mkdir .zapp
+cd .zapp
+git clone https://github.com/rupa/z.git
+mv z/z.sh .
+rm -rf z
+cd
+
 }
 
 ###############################

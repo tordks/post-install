@@ -31,7 +31,7 @@ echo 't   - system tools'
 echo 'D   - development tools'
 echo 'a   - applications'
 echo 'd   - design tools'
-echo 'f   - dotfiles'
+echo 'f   - settings'
 echo 'all - all of the above'
 read ans
 
@@ -185,9 +185,6 @@ terminator \
 #when-changed
 pip install https://github.com/joh/when-changed/archive/master.zip 
 
-#Remove native terminal and replace it with terminator
-sudo apt-get remove gnome-terminal
-sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
 
 #---------#
 #  .Zapp  #
@@ -276,13 +273,22 @@ imagemagick \
 ##############
 #  Dotfiles  #
 ##############
-function dotfiles {
-echo 'Adding dotfiles'
+function settings {
+echo 'Adding predefined settings'
 git clone https://github.com/tordks/dotfiles.git
 cd .dotfiles/
 stow bash
 stow vim
 cd
+
+# Make vim standard editor for misc. programmes
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+#Remove native terminal and replace it with terminator
+sudo apt-get remove gnome-terminal
+sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
+
 }
 
 ####################
@@ -365,7 +371,7 @@ fi
 
 if [[ $ans == *"f"* || $ans == *"all"* ]]
 then
-    dotfiles       # Get dotfiles and move to correct location
+    settings        # Add predefined settings
 fi
 
 if [[ $clean == *"Y"* || $clean == *"y"* ]]

@@ -64,7 +64,6 @@ Vlc
 Skype
 Wine
 Indicator sticknotes
-Nitro Task Manager
 Tor browser
 Google Chrome 
 Steam
@@ -154,7 +153,6 @@ echo 'Installing system tools'
 echo ''
 echo 'Current package list:
 aptitude
-dconf-tools
 ssh
 synaptic
 htop
@@ -261,7 +259,8 @@ inkscape
 imagemagick
 gnome-do'
 echo ''
-sudo apt-get install -y  gimp \
+sudo apt-get install -y  \
+gimp \
 gimp-plugin-registry \
 icontool \
 inkscape \
@@ -296,42 +295,35 @@ sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
 ####################
 
 function cleanup {
-#TODO: Look at original file
 echo ''
-echo '1. Remove unused pre-installed packages'
-echo '2. Remove old kernel(s)'
-echo '3. Remove orphaned packages'
-echo '4. Remove leftover configuration files'
-echo '5. Clean package cache'
+echo 'Remove unused pre-installed packages'
+echo 'Remove old kernel(s)'
+echo 'Remove orphaned packages'
+echo 'Remove leftover configuration files'
+echo 'Clean package cache'
 
 echo 'Removing selected pre-installed applications...'
-echo 'Requires root privileges:'
 sudo apt-get purge landscape-client-ui-install ubuntuone-control-panel* overlay*
-echo 'Done.'
 
 # Remove Old Kernel
 echo 'Removing old Kernel(s)...'
-echo 'Requires root privileges:'
 sudo dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | grep -v linux-libc-dev | xargs sudo apt-get -y purge
-echo 'Done.'
 
 # Remove Orphaned Packages
 echo 'Removing orphaned packages...'
-echo 'Requires root privileges:'
 sudo apt-get autoremove -y
-echo 'Done.'
 
 # Remove residual config files?
 echo 'Removing leftover configuration files...'
-echo 'Requires root privileges:'
 sudo dpkg --purge $(COLUMNS=200 dpkg -l | grep '^rc' | tr -s ' ' | cut -d ' ' -f 2)
-echo 'Done.'
 
 # Clean Package Cache
 echo 'Cleaning package cache...'
-echo 'Requires root privileges:'
 sudo apt-get clean
-echo 'Done.'
+
+# Remove packages that were automatically installed to satisfy dependencies for other packages and are now no longer needed
+echo 'Remove automaticly added packages which are no longer needed'
+sudo apt-get autoremove
 }
 
 

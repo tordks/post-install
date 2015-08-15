@@ -8,9 +8,7 @@
 #TODO: Read gnome stuff
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
-#TODO: RSS-feed application
-#TODO: clean CLEANUP
-
+#TODO: Add ParaView, Openfoam, Blender.
 
 echo ''
 echo '#------------------------------#'
@@ -141,6 +139,15 @@ cd
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c :bd -c :q
 
+
+#----------#
+#  RSSowl  #
+#----------#
+
+wget http://archive.getdeb.net/ubuntu/rpool/apps/r/rssowl/rssowl_2.2.1-1~getdeb1_amd64.deb
+sudo dpkg -i rssowl_2.2.1-1~getdeb1_amd64.deb
+sudo apt-get install -f
+sudo rm -rf rssowl_2.2.1-1~getdeb1_amd64.deb
 }
 
 ##########################

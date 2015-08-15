@@ -8,7 +8,7 @@
 #TODO: Read gnome stuff
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
-#TODO: Add ParaView, Openfoam, Blender.
+#TODO: Add ParaView, Openfoam, Blender, pov-ray, timeshift.
 
 echo ''
 echo '#------------------------------#'
@@ -249,6 +249,8 @@ liblapack-dev \
 cmake \
 texlive \
 || echo "Installation failed" && exit
+
+
 }
 
 

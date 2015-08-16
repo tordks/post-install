@@ -8,7 +8,7 @@
 #TODO: Read gnome stuff
 #TODO: Add customizations
 #TODO: Koble opp mot stud-serveren
-#TODO: Add ParaView, Openfoam, Blender, pov-ray, timeshift.
+#TODO: Add ParaView, Openfoam, pov-ray. 
 
 echo ''
 echo '#------------------------------#'
@@ -67,9 +67,9 @@ Google Chrome
 Steam
 Vim'
 
-sudo add-apt-repository ppa:umang/indicator-stickynotes
-#sudo add-apt-repository ppa:cooperjona/nitrotasks
-sudo add-apt-repository ppa:upubuntu-com/tor64
+sudo add-apt-repository -y ppa:umang/indicator-stickynotes
+#sudo add-apt-repository -y ppa:cooperjona/nitrotasks
+sudo add-apt-repository -y ppa:upubuntu-com/tor64
 sudo apt-get update
 
 sudo apt-get install -y \
@@ -167,12 +167,17 @@ parallel
 GNU stow
 tig
 ncdu
-pip
-when-changed
+pip -   installation software
+when-changed    -   runs a program when a file is changed
 xsel
-terminator
-zapp'
+terminator  -   new terminal
+zapp    -   fast folder browsing
+timeshift   -   system restore tool'
 echo ''
+
+sudo apt-add-repository ppa:teejee2008/ppa
+sudo apt-get update
+
 sudo apt-get install -y \
 aptitude \
 ssh \
@@ -185,6 +190,7 @@ ncdu \
 python-pip \
 xsel \
 terminator \
+timeshift \
 || echo "Installation failed" && exit
 
 #when-changed
@@ -266,14 +272,20 @@ gimp
 gimp-plugin-registry
 inkscape
 imagemagick
-gnome-do'
+gnome-do
+blender'
 echo ''
+
+sudo add-apt-repository -y ppa:thomas-schiex/blender
+sudo apt-get update
+
 sudo apt-get install -y  \
 gimp \
 gimp-plugin-registry \
 icontool \
 inkscape \
 imagemagick \
+blender \
 'gnome-do' || echo "Installation failed" && exit
 }
 

@@ -64,8 +64,7 @@ Wine
 Indicator sticknotes
 Tor browser
 Google Chrome 
-Steam
-Vim'
+Steam'
 
 sudo add-apt-repository -y ppa:umang/indicator-stickynotes
 #sudo add-apt-repository -y ppa:cooperjona/nitrotasks
@@ -186,11 +185,27 @@ xsel \
 terminator \
 timeshift \
 curl \
+cifs-utils \
+openconnect \
 || echo "Installation failed" && exit
 
 #when-changed
 pip install https://github.com/joh/when-changed/archive/master.zip 
 
+#vpn to NTNU
+cd ~/Desktop/
+wget kjdf.no/downloads/ntnu_shares.sh.gz
+gunzip ntnu_shares.sh.gz
+chmod +x ntnu_shares.sh
+cd
+j
+# The script is used like this:
+
+# ntnu_shares.sh start  - (Kobler til VPN og) monterer ressurser
+# ntnu_shares.sh stop   - Avmonterer ressurser (og kobler fra VPN)
+# ntnu_shares.sh kill   - Kobler fra VPN og forsøker å avmontere ressurser.
+#                         - Denne kan brukes dersom det oppstår problemer med de monterte ressursene.
+# ./ntnu_shares.sh status - Viser status
 
 #-------#
 #  VIM  #
@@ -297,7 +312,7 @@ blender \
 
 
 ##############
-#  Dotfiles  #
+#  Settings  #
 ##############
 function settings {
 echo 'Adding predefined settings'
@@ -307,11 +322,12 @@ stow bash
 stow vim
 cd
 
-# Make vim standard editor for misc. programmes
+# Make vim standard editor for misc. programmes.
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 #Remove native terminal and replace it with terminator
+# Terminator must already be installed.
 sudo apt-get remove gnome-terminal
 sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
 

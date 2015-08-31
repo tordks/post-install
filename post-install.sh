@@ -9,6 +9,8 @@
 #TODO: Add customizations
 #TODO: Add if(there) == 1 => run on zapp, vim
 #TODO: Add ParaView, Openfoam, pov-ray. 
+#TODO: Consider adding https://github.com/johndgiese/dotvim configs to
+#      .vimrc
 
 echo ''
 echo '#------------------------------#'

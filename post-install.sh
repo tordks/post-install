@@ -7,7 +7,7 @@
 #TODO: Document packages
 #TODO: Read gnome stuff
 #TODO: Add customizations
-#TODO: Koble opp mot stud-serveren
+#TODO: Add if(there) == 1 => run on zapp, vim
 #TODO: Add ParaView, Openfoam, pov-ray. 
 
 echo ''
@@ -186,19 +186,18 @@ terminator \
 timeshift \
 curl \
 cifs-utils \
-openconnect \
-|| echo "Installation failed" && exit
+openconnect 
+#|| echo "Installation failed" && exit
 
 #when-changed
-pip install https://github.com/joh/when-changed/archive/master.zip 
+sudo pip install https://github.com/joh/when-changed/archive/master.zip 
 
 #vpn to NTNU
 cd ~/Desktop/
-wget kjdf.no/downloads/ntnu_shares.sh.gz
-gunzip ntnu_shares.sh.gz
+wget -q  kjdf.no/downloads/ntnu_shares.sh.gz -O ntnu_shares.sh.gz
+gunzip -f ntnu_shares.sh.gz
 chmod +x ntnu_shares.sh
 cd
-j
 # The script is used like this:
 
 # ntnu_shares.sh start  - (Kobler til VPN og) monterer ressurser

@@ -131,14 +131,6 @@ sudo apt-get install -fy
 rm steam*.deb
 cd
 
-#-------#
-#  VIM  #
-#-------#
-
-#Installing plugin manager
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c PlugInstall -c :bd -c :q
-
 
 #----------#
 #  RSSowl  #
@@ -172,10 +164,12 @@ when-changed    -   runs a program when a file is changed
 xsel
 terminator  -   new terminal
 zapp    -   fast folder browsing
-timeshift   -   system restore tool'
+timeshift   -   system restore tool
+curl    -   client to get/send documents from/to a server
+vim     -   epic editor'
 echo ''
 
-sudo apt-add-repository ppa:teejee2008/ppa
+sudo apt-add-repository -y ppa:teejee2008/ppa
 sudo apt-get update
 
 sudo apt-get install -y \
@@ -191,11 +185,23 @@ python-pip \
 xsel \
 terminator \
 timeshift \
+curl \
 || echo "Installation failed" && exit
 
 #when-changed
 pip install https://github.com/joh/when-changed/archive/master.zip 
 
+
+#-------#
+#  VIM  #
+#-------#
+
+#Installing plugin manager
+mkdir .vim/autoload/
+cd .vim/autoload/
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c PlugInstall -c :bd -c :q
+cd
 
 #---------#
 #  .Zapp  #

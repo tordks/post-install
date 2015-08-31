@@ -255,7 +255,8 @@ vim
 scons
 lapack
 cmake
-Latex'
+texlive
+texlive-latex-extra'
 echo ''
 sudo apt-get install -y \
 build-essential \
@@ -274,6 +275,7 @@ scons \
 liblapack-dev \
 cmake \
 texlive \
+texlive-latex-extra \
 || echo "Installation failed" && exit
 
 

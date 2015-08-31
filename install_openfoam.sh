@@ -2,6 +2,8 @@ echo'#####################################'
 echo'#  Install OPENFOAM on ubuntu 14.4  #'
 echo'#####################################'
 
+#This script follows the steps found on this page:
+#https://openfoamwiki.net/index.php/Installation/Linux/OpenFOAM-2.4.0/Ubuntu
 
 echo 'How many processors does this computer have?'
 read > procs

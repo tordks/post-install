@@ -1,3 +1,4 @@
+#!/bin/bash
 echo'#####################################'
 echo'#  Install OPENFOAM on ubuntu 14.4  #'
 echo'#####################################'
@@ -155,7 +156,7 @@ else
     ./makeParaView4 -python -mpi -python-lib /usr/lib/i386-linux-gnu/libpython2.7.so.1.0 > log.makePV 2>&1
 fi
 
-echo 'Make sure to check the contents of the file log.makePV and 
+echo 'Check the contents of file log.makePV and 
       check if there are any errors. Press enter to continue'
 read
 

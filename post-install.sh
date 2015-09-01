@@ -4,11 +4,10 @@
 # Description:
 #   A post-installation bash script for Ubuntu (14.04)
 
-#TODO: Document packages
 #TODO: Read gnome stuff
 #TODO: Add customizations
-#TODO: Add if(there) == 1 => run on zapp, vim
-#TODO: Add ParaView, Openfoam, pov-ray. 
+#TODO: Add if(there) == 0 => run on zapp, vim
+#TODO: Add ParaView, Openfoam, pov-ray to seperate file
 #TODO: Consider adding https://github.com/johndgiese/dotvim configs to
 #      .vimrc
 
@@ -60,13 +59,13 @@ echo ''
 echo 'Installing selected favourite applications'
 echo ''
 echo 'Current package list:
-Vlc
-Skype
-Wine
-Indicator sticknotes
-Tor browser
-Google Chrome 
-Steam'
+vlc                  - video player
+skype                - chat
+wine                 - windows emulator
+indicator sticknotes - notes on desktop
+tor browser          - browser for the dark web
+google Chrome        - browser
+steam                - game client'
 
 sudo add-apt-repository -y ppa:umang/indicator-stickynotes
 #sudo add-apt-repository -y ppa:cooperjona/nitrotasks
@@ -152,22 +151,22 @@ echo ''
 echo 'Installing system tools'
 echo ''
 echo 'Current package list:
-aptitude
-ssh
-synaptic
-htop
-parallel
-GNU stow
-tig
-ncdu
-pip -   installation software
-when-changed    -   runs a program when a file is changed
-xsel
-terminator  -   new terminal
-zapp    -   fast folder browsing
-timeshift   -   system restore tool
-curl    -   client to get/send documents from/to a server
-vim     -   epic editor'
+aptitude     - package handler
+ssh          - for logging in remotely
+synaptic     - grahpical package manager
+htop         - process viewer
+parallel     - shell tool for executing jobs in parallel
+GNU stow     - software installation manager
+tig          - git repository browser
+ncdu         - disk usage viewer
+pip          - python package installer
+when-changed - runs a program when a file is changed
+xsel         - command-line tool to access x clipboard and selection buffers
+terminator   - alternative terminal
+zapp         - fast folder browsing
+timeshift    - system restore tool
+curl         - client to get/send documents from/to a server
+vim          - epic editor'
 echo ''
 
 sudo apt-add-repository -y ppa:teejee2008/ppa
@@ -242,23 +241,22 @@ echo ''
 echo 'Installing development tools...'
 echo ''
 echo 'Current package list:
-build-essential
-git
-gitk
-g++
-gfortran
-libcr-dev
-python-numpy
-python-scipy
-python-matplotlib
-ipython
-ipython-notebook
-vim
-scons
-lapack
-cmake
-texlive
-texlive-latex-extra'
+build-essential     - allows building of deb packages
+git                 - version controll
+gitk                - revision tree visualizer
+g++                 - c++ compiler
+gfortran            - fortran compiler
+libcr-dev           - allows programs to be "checkpointed"
+python-numpy        - array facility to the python language
+python-scipy        - scientific tools for python
+python-matplotlib   - python based plotting system
+ipython             - Enhanced interactive python shell
+ipython-notebook    - interactive python html notebook
+scons               - alternative to make
+lapack              - linear algebra package
+cmake               - open- source make system
+texlive             - tex system
+texlive-latex-extra - additional packages for tex'
 echo ''
 sudo apt-get install -y \
 build-essential \
@@ -292,12 +290,12 @@ echo ''
 echo 'Installing design tools...'
 echo ''
 echo 'Current package list:
-gimp
-gimp-plugin-registry
-inkscape
-imagemagick
-gnome-do
-blender'
+gimp                       - image manipulation program
+gimp-plugin-linux registry - Repository of optional extensions for gimp
+inkscape                   - vector-based drawing program
+imagemagick                - image manipulation programs
+gnome-do                   - quickly perform actions on your desktop
+blender                    - 3d modeller/renderer'
 echo ''
 
 sudo add-apt-repository -y ppa:thomas-schiex/blender

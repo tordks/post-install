@@ -47,10 +47,12 @@ sudo apt-get install sshfs
 2) create a empty dir
 
 mkdir /home/youruser/remotecomp
+mkdir ~/stud
 
 3) "link" the two directories (the right term is mount)
 
 sshfs user@server.com:/some/remote/dir /home/youruser/remotecomp
+sshfs tordks@caracal.stud.ntnu.no: ~/stud
 
 4) Enjoy
 

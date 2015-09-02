@@ -8,8 +8,14 @@
 #TODO: Add customizations
 #TODO: Add if(there) == 0 => run on zapp, vim
 #TODO: Add ParaView, Openfoam, pov-ray to seperate file
-#TODO: Consider adding https://github.com/johndgiese/dotvim configs to
-#      .vimrc
+#TODO: Consider adding these to vim:
+#      https://github.com/johndgiese/dotvim
+#      https://github.com/carlhuda/janus
+#      https://github.com/altercation/Vim-colors-solarized
+#      https://github.com/tomasr/molokai
+#      https://github.com/sjl/badwolf/
+#TODO: Reconsider using terminator
+#TODO: Consider using tmux. If so add tmux settings to vimrc.
 
 echo ''
 echo '#------------------------------#'

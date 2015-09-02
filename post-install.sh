@@ -16,6 +16,7 @@
 #      https://github.com/sjl/badwolf/
 #TODO: Reconsider using terminator
 #TODO: Consider using tmux. If so add tmux settings to vimrc.
+#TODO: Add compilation of Youcompleteme for vim and powerline fonts.
 
 echo ''
 echo '#------------------------------#'

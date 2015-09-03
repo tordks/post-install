@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOT TESTED
+
 #TODO: check all dependencies automaticly beforehand.
 #TODO: add options for testing
 #TODO: add comments

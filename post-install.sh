@@ -41,9 +41,9 @@ echo 'f   - settings'
 echo 'all - all of the above'
 read ans
 
-echo 'Cleanup?'
-echo 'Y/n'
-read clean
+#echo 'Cleanup?'
+#echo 'Y/n'
+#read clean
 }
 
 #####################
@@ -263,7 +263,9 @@ scons               - alternative to make
 lapack              - linear algebra package
 cmake               - open- source make system
 texlive             - tex system
-texlive-latex-extra - additional packages for tex'
+texlive-latex-extra - additional packages for tex
+latex-xcolor        - xcolor package for latex
+latexmk             - resolves cross-references in LaTeX'
 echo ''
 sudo apt-get install -y \
 build-essential \
@@ -283,6 +285,8 @@ liblapack-dev \
 cmake \
 texlive \
 texlive-latex-extra \
+latex-xcolor \
+latexmk \
 || echo "Installation failed" && exit
 
 
@@ -417,10 +421,10 @@ then
     settings        # Add predefined settings
 fi
 
-if [[ $clean == *"Y"* || $clean == *"y"* ]]
-then
-    cleanup        # Remove unused packages etc.
-fi
+#if [[ $clean == *"Y"* || $clean == *"y"* ]]
+#then
+#    cleanup        # Remove unused packages etc.
+#fi
 
 echo ''
 echo 'Post-install completed'

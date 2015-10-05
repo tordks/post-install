@@ -70,13 +70,11 @@ vlc                  - video player
 skype                - chat
 wine                 - windows emulator
 indicator sticknotes - notes on desktop
-tor browser          - browser for the dark web
-google Chrome        - browser
-steam                - game client'
+google Chrome        - browser'
 
 sudo add-apt-repository -y ppa:umang/indicator-stickynotes
 #sudo add-apt-repository -y ppa:cooperjona/nitrotasks
-sudo add-apt-repository -y ppa:upubuntu-com/tor64
+#sudo add-apt-repository -y ppa:upubuntu-com/tor64
 sudo apt-get update
 
 sudo apt-get install -y \
@@ -84,8 +82,9 @@ vlc \
 skype \
 wine \
 indicator-stickynotes \
-tor-browser \
 || echo "Installation failed" && exit
+
+#tor-browser \
 
 #To remove tor:
 #sudo add-apt-repository --remove ppa:upubuntu-com/tor-bundle
@@ -114,28 +113,6 @@ sudo apt-get install -fy
 
 # Cleanup and finish
 rm google-chrome*.deb
-cd
-
-#---------#
-#  Steam  #
-#---------#
-
-echo 'Downloading Steam'
-cd $HOME/Downloads
-# Download Debian file that matches system architecture
-if [ $(uname -i) = 'i386' ]; then
-    wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-elif [ $(uname -i) = 'x86_64' ]; then
-    wget http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-fi
-
-# Install package(s)
-echo 'Installing Steam...'
-sudo dpkg -i steam*.deb
-sudo apt-get install -fy
-
-# Cleanup and finish
-rm steam*.deb
 cd
 
 

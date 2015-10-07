@@ -56,7 +56,7 @@ read ans
 
 function sysupgrade {
 echo 'SYSTEM UPGRADE'
-sudo apt-get update -y
+sudo apt-get update
 sudo apt-get dist-upgrade -y
 }
 

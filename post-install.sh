@@ -209,7 +209,6 @@ mkdir .vim/autoload/
 cd .vim/autoload/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugClean -c PlugInstall -c :bd -c :q
-cd
 
 #---------#
 #  .Zapp  #
@@ -236,7 +235,7 @@ echo 'Installing development tools...'
 echo ''
 echo 'Current package list:
 build-essential     - allows building of deb packages
-git                 - version controll
+git                 - version control
 gitk                - revision tree visualizer
 g++                 - c++ compiler
 gfortran            - fortran compiler
@@ -264,6 +263,7 @@ libcr-dev \
 python-numpy \
 python-scipy \
 python-matplotlib \
+python-dev \
 ipython \
 ipython-notebook \
 vim \
@@ -317,6 +317,11 @@ git clone https://github.com/tordks/dotfiles.git
 cd .dotfiles/
 stow bash
 stow vim
+cd
+
+
+cd .vim/plugged/YouCompleteMe/
+python install.py
 cd
 
 # Make vim standard editor for misc. programmes.

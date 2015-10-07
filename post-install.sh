@@ -26,6 +26,10 @@ echo '#------------------------------#'
 echo '#------------------------------#'
 echo ''
 
+echo ''
+echo 'This script should be executed from a git folder in you home directory'
+echo ''
+
 ####################
 #  Choose bundles  #
 ####################

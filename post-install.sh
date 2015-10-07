@@ -30,6 +30,12 @@ echo ''
 echo 'This script should be executed from a git folder in you home directory'
 echo ''
 
+echo ''
+echo ' THIS SCRIPT IS NOT RECENTLY TESTED '
+echo ' test mkdir with zapp and dotfiles '
+echo ''
+
+
 ####################
 #  Choose bundles  #
 ####################
@@ -198,6 +204,7 @@ cd
 #-------#
 
 #Installing plugin manager
+cd
 mkdir .vim/autoload/
 cd .vim/autoload/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -209,6 +216,7 @@ cd
 #---------#
 
 echo 'Installing .zapp'
+cd
 mkdir .zapp
 cd .zapp
 git clone https://github.com/rupa/z.git
@@ -304,9 +312,9 @@ blender \
 ##############
 function settings {
 echo 'Adding predefined settings'
+cd
 git clone https://github.com/tordks/dotfiles.git
-mv .dotfiles ..
-cd ../.dotfiles/
+cd .dotfiles/
 stow bash
 stow vim
 cd

@@ -81,8 +81,8 @@ sudo apt-get install -y \
 vlc \
 skype \
 wine \
-indicator-stickynotes \
-|| echo "Installation failed" && exit
+indicator-stickynotes
+#|| echo "Installation failed" && exit
 
 #tor-browser \
 
@@ -199,7 +199,7 @@ cd
 mkdir .vim/autoload/
 cd .vim/autoload/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c PlugInstall -c :bd -c :q
+vim -c PlugClean -c PlugInstall -c :bd -c :q
 cd
 
 #---------#
@@ -306,7 +306,8 @@ blender \
 function settings {
 echo 'Adding predefined settings'
 git clone https://github.com/tordks/dotfiles.git
-cd .dotfiles/
+mv .dotfiles ..
+cd ../.dotfiles/
 stow bash
 stow vim
 cd

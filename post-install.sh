@@ -86,7 +86,6 @@ vlc \
 skype \
 wine \
 indicator-stickynotes
-#|| echo "Installation failed" && exit
 
 #tor-browser \
 
@@ -176,7 +175,6 @@ timeshift \
 curl \
 cifs-utils \
 openconnect 
-#|| echo "Installation failed" && exit
 
 #when-changed
 sudo pip install https://github.com/joh/when-changed/archive/master.zip 
@@ -267,10 +265,7 @@ cmake \
 texlive \
 texlive-latex-extra \
 latex-xcolor \
-latexmk \
-|| echo "Installation failed" && exit
-
-
+latexmk
 }
 
 
@@ -300,7 +295,7 @@ icontool \
 inkscape \
 imagemagick \
 blender \
-'gnome-do' || echo "Installation failed" && exit
+'gnome-do' 
 }
 
 

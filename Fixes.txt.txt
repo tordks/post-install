@@ -1,0 +1,52 @@
+
+ETHERNET
+Install the driver at:
+http://www.intel.com/support/network/sb/cs-032514.htm
+
+WIFI
+
+go to http://ftp.psu.ru/linux/ubuntu/pool/restricted/b/bcmwl/
+and download bcmwl-kernel-source_6.30.223.248+bdcom-0ubuntu1_i386
+
+cd ~/Desktop
+sudo dpkg -i *.deb
+sudo modprobe wl
+
+GRAPHICS CARD
+
+Alternative 1:
+Boot without gui and put the NVIDIA driver file in home and run it
+
+Alternative 2:
+https://www.youtube.com/watch?v=01aieQOYMRk
+http://forums.linuxmint.com/viewtopic.php?t=184569&p=956147
+
+1) Install linux mint 17
+2) Open a terminal and as the root user edit /etc/default/grub an:d change these lines to make accessing the boot menu easier
+GRUB_HIDDEN_TIMEOUT=10
+GRUB_HIDDEN_TIMEOUT_QUIET=false
+GRUB_TIMEOUT=0
+3) Save the file and then from the terminal run update-grub2
+4) From the GUI menu, goto administration and run update manager. Install all level 1-3 updates. (level 4 and 5 updates are NOT required)
+5) Open Firefox, goto http://www.geforce.com/drivers
+6) Select your operating system and graphics card and download the file. For an NVIDIA GTX970/980 this is version 343.36 or higher.
+7) reboot
+8 ) When the countdown appears in the top left hand corner press SHIFT. The boot menu appears.
+9) Select the recovery boot (2nd option down)
+10) Select root shell from the recovery menu
+11) Mount the root filesystem as read write (use df -k to get the hardware path for the / device)
+mount -o remount,rw /dev/sda1	(Where /dev/sda1 is the hardware path in this example)
+12) CD to the downloads directory, change <user> to the user which downloaded the nvidia driver
+cd /home/<user>/Downloads
+13) Set the compile options to get the install to work
+IGNORE_CC_MISMATCH=1
+export IGNORE_CC_MISMATCH
+14) Make the installer executable
+chmod +x ./NVIDIA*
+15) Run the installer 
+./NVIDIA*
+16) When asked to use DKMS select YES
+17) The installer will ask if want to run nvidia-xconfig, select YES
+18) If the installer exits with the message "Installation has failed" then the driver will not work. Check the logs /var/log/nvidia-installer.log and /var/lib/dkms/nvidia/343.36/build/make.log
+19) reboot
+20) If the recovery menu appears again use the resume option.

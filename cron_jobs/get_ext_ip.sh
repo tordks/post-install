@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# TODO: Change from dropbox to.... mail? stud?
+
+echo 'TEST' >> testtest.txt
 
 # Bash script to get the external IP address
 MYWANIP=$(curl http://mire.ipadsl.net | sed -nr -e 's|^.*<span class="ip">([0-9.]+)</span>.*$|\1| p')
@@ -16,6 +17,8 @@ if [[ $IPold != $MYWANIP ]] ;
         echo $MYWANIP >> /home/$USER/div/ip.txt
         echo "$MYWANIP    $(date '+| %S:%M:%H | %d.%m.%y ')" >> /home/$USER/div/ip_statistic.txt
         echo $MYWANIP;
+
+        cat div/ip.txt | mail -s "new ip" tordks@hotmail.com
     else
       echo "Same IP";
 fi

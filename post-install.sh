@@ -78,7 +78,6 @@ echo ''
 echo 'Current package list:
 vlc                  - video player
 skype                - chat
-wine                 - windows emulator
 indicator sticknotes - notes on desktop
 google Chrome        - browser'
 
@@ -90,7 +89,6 @@ sudo apt-get update
 sudo apt-get install -y \
 vlc \
 skype \
-wine \
 indicator-stickynotes
 
 #tor-browser \

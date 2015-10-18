@@ -27,7 +27,7 @@ echo '#------------------------------#'
 echo ''
 
 echo ''
-echo 'This script should be executed from a git folder in you home directory'
+echo 'settings before system'
 echo ''
 
 echo ''
@@ -159,7 +159,8 @@ terminator   - alternative terminal
 zapp         - fast folder browsing
 timeshift    - system restore tool
 curl         - client to get/send documents from/to a server
-vim          - epic editor'
+vim          - epic editor
+gnome-do     - quickly perform actions on your desktop'
 echo ''
 
 sudo apt-add-repository -y ppa:teejee2008/ppa
@@ -180,7 +181,8 @@ terminator \
 timeshift \
 curl \
 cifs-utils \
-openconnect 
+openconnect \
+'gnome-do'
 
 #when-changed
 sudo pip install https://github.com/joh/when-changed/archive/master.zip 
@@ -206,6 +208,8 @@ cd
 #Installing plugin manager
 cd
 mkdir .vim/autoload/
+mkdir .vim/undo/
+mkdir .vim/backups/
 cd .vim/autoload/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugClean -c PlugInstall -c :bd -c :q
@@ -274,6 +278,25 @@ texlive \
 texlive-latex-extra \
 latex-xcolor \
 latexmk
+
+echo'Compiling python3.4.3.tqz'
+
+echo'Installing required packages'
+sudo apt-get install build-essential checkinstall
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+                     libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+cd /usr/src
+sudo wget https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz
+sudo tar xzf Python-3.4.3.tgz
+sudo rm Python-3.4.3.tgz
+cd Python-3.4.3
+sudo ./configure
+sudo make altinstall
+cd
+
+
+
 }
 
 
@@ -289,7 +312,6 @@ gimp                       - image manipulation program
 gimp-plugin-linux registry - Repository of optional extensions for gimp
 inkscape                   - vector-based drawing program
 imagemagick                - image manipulation programs
-gnome-do                   - quickly perform actions on your desktop
 blender                    - 3d modeller/renderer'
 echo ''
 
@@ -302,8 +324,7 @@ gimp-plugin-registry \
 icontool \
 inkscape \
 imagemagick \
-blender \
-'gnome-do' 
+blender
 }
 
 

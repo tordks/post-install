@@ -18,6 +18,7 @@
 #TODO: Consider using tmux. If so add tmux settings to vimrc.
 #TODO: Add compilation of Youcompleteme for vim and powerline fonts.
 #TODO: Add BOOST c++ library
+#TODO: Anaconda instead of several python installs.
 
 echo ''
 echo '#------------------------------#'

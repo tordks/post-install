@@ -1,0 +1,14 @@
+
+
+xcape : xcape allows you to use a modifier key as another key when pressed and released on its own
+ranger : vim like console file manager
+anaconda3 : python manager++
+thrash-cli : command line interface to system thrash
+rupa/z : fuzzy cd
+tmux : terminal multiplexer
+neovim : epic editor
+pycharm-community : python IDE
+git : version control
+
+vlc : media player
+google chrome : web browser
